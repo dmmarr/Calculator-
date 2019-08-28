@@ -74,10 +74,38 @@
   </div>
 
 <script type="text/javascript">
-
+// global variables:
+var operator = false;
+var num1 = 0;
+var num2 = 0;
+// lets the program wait for a input
 $(document).ready(function() {
+//  creating the function for the first number being clicked
+ function numOne(){
+  
+   $(".number").on("click",function(){
+    //  if the operator is off, because it is... 
+    // When its false any number pushed only effects the first number
+     if (operator === false){
+       // increasing the num, "this" is the placeholder
+      //  because the computer still doesn't know what it 
+      // is taking it and that is where "this" comes in place
+      num1 = $(this).val();
+      //  displaying the num on the html
+      $("#first-number").text(num1)
+     }
+    
+    //  if the operator is off, because it is... 
+    // When its false any number pushed only effects the first number
+     else if (operator === true){
 
-// Your code here...
+     }
+   });
+  
+ };
+ 
+
+ numOne();
 
 
 });
