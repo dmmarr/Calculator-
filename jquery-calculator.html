@@ -78,6 +78,7 @@
 var operator = false;
 var num1 = 0;
 var num2 = 0;
+var userChoice = "";
 // lets the program wait for a input
 $(document).ready(function() {
 //  creating the function for the first number being clicked
@@ -90,23 +91,56 @@ $(document).ready(function() {
        // increasing the num, "this" is the placeholder
       //  because the computer still doesn't know what it 
       // is taking it and that is where "this" comes in place
-      num1 = $(this).val();
+      num1 += $(this).val();
       //  displaying the num on the html
       $("#first-number").text(num1)
      }
     
-    //  if the operator is off, because it is... 
-    // When its false any number pushed only effects the first number
+    //  if the operator is on, because it is... 
+    // When its true any number pushed only effects the second number
      else if (operator === true){
-
+       // increasing the num, "this" is the placeholder
+      //  because the computer still doesn't know what it 
+      // is taking it and that is where "this" comes in place
+      num2 += $(this).val();
+      //  displaying the num on the html
+      $("#second-number").text(num2);
      }
    });
   
  };
+
+ function oper (){
+  $(".operator").on("click", function(){
+  operator = true;
+  userChoice = $(this).val();
+$("#operator").text(userChoice)
+if(userChoice === "minus"){
+  $("#operator").text("-")
+}
+else if(userChoice === "plus"){
+  $("#operator").text("+")
+}
+else if(userChoice === "times"){
+  $("#operator").text("*")
+}
+else if(userChoice === "divide"){
+  $("#operator").text("/")
+}
+else if(userChoice === "power"){
+  $("#operator").text("^")
+}
+  
+ 
+
+
+  })
+
+ }
  
 
  numOne();
-
+oper();
 
 });
 
