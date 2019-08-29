@@ -76,9 +76,10 @@
 <script type="text/javascript">
 // global variables:
 var operator = false;
-var num1 = 0;
-var num2 = 0;
+var num1 = "";
+var num2 = "";
 var userChoice = "";
+var results = 0;
 // lets the program wait for a input
 $(document).ready(function() {
 //  creating the function for the first number being clicked
@@ -129,16 +130,50 @@ else if(userChoice === "divide"){
 }
 else if(userChoice === "power"){
   $("#operator").text("^")
-}
+};
+});
+};
+
+function equal(){
+  $(".equal").on("click", function(){
+  if (userChoice === "plus"){
+  results = Number(num1) + Number(num2)
+  }
+  console.log(userChoice);
+  if(userChoice === "minus"){
+    results = Number(num1) - Number(num2)
+  }
+  else if (userChoice === "times"){
+    results = Number(num1) *  Number(num2)
+  }
+  else if (userChoice === "divide"){
+    results = Number(num1) /  Number(num2)
+  }  
+  else if (userChoice === "power"){
+    results = Math.pow(Number(num1),Number(num2))
+  };
   
+    $("#result").text(results)
+    });
+};
+function clearAll (){
+  $(".clear").on("click",function(){
+  operator = false;
+  $("#first-number").text("")
+  $("#second-number").text("")
+  $("#operator").text("")
+  $("#result").text("")
+  operator = false;
+  num1 = "";
+  num2 = "";
+  userChoice = "";
+  results = 0;
+  });
+  
+};
  
-
-
-  })
-
- }
- 
-
+ clearAll();
+equal();
  numOne();
 oper();
 
